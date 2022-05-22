@@ -1,0 +1,851 @@
+.cjslib-calendar {
+    width: 800px;
+    height: 800px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+            flex-direction: column;
+    font-family: "Satellite", "Roboto", sans-serif;
+    border: 1px solid rgba(21, 21, 21, 0.12);
+    border-radius: 20px;
+    -webkit-transform: scale(1);
+     -ms-transform: scale(1);
+         transform: scale(1);
+    -webkit-box-shadow: 0px 0px 4px rgba(21, 21, 21, 0.21);
+            box-shadow: 0px 0px 4px rgba(21, 21, 21, 0.21);
+    -ms-user-select: none;
+    user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+}
+
+h2
+{
+    font-size: 100%;
+}
+
+.cjslib-calendar.cjslib-size-small {
+    width: 400px;
+    height: 400px;
+    background-color: #e6e6e6;
+}
+
+.cjslib-calendar.cjslib-size-medium {
+    width: 600px;
+    height: 600px;
+}
+
+.cjslib-calendar.cjslib-size-large {
+    width: 800px;
+    height: 800px;
+}
+
+.cjslib-year {
+    width: calc(100% - 10px);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+            justify-content: center;
+    padding: 5px;
+    border-radius: 20px 20px 0 0;
+    font-size: 14px;
+}
+
+.cjslib-year > span {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+            flex: 1;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+            justify-content: center;
+    -ms-flex-line-pack: center;
+            align-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+            align-items: center;
+    text-transform: uppercase;
+}
+
+.cjslib-year > div {
+    cursor: pointer;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-line-pack: center;
+            align-content: center;
+}
+
+.cjslib-month {
+    z-index: 1;
+    width: calc(100% - 10px);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+            justify-content: center;
+    padding: 20px 5px;
+    font-size: 40px;
+    -webkit-box-shadow: 0px 1px 4px rgba(21, 21, 21, 0.12);
+            box-shadow: 0px 1px 4px rgba(21, 21, 21, 0.12);
+}
+
+.cjslib-month > span {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+            flex: 1;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+            justify-content: center;
+    -ms-flex-line-pack: center;
+            align-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+            align-items: center;
+    text-transform: uppercase;
+}
+
+.cjslib-month > div {
+    cursor: pointer;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-line-pack: center;
+            align-content: center;
+}
+
+.cjslib-labels {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+            flex-direction: row;
+}
+
+/* Wochen Zeile */
+.cjslib-labels > span {     
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+            flex: 1;
+    font-size: 12px;
+    text-transform: uppercase;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+            justify-content: center;
+    -ms-flex-line-pack: center;
+            align-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+            align-items: center;
+    padding: 10px;
+}
+
+/* Tage Raster 1 bis 31 */
+.cjslib-days {
+    background-color: #e6e6e6;
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+            flex: 1;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    border-radius: 0 0 20px 20px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+            flex-direction: column;
+    /*-webkit-box-shadow: 0px 2px 6px -2px rgba(21, 21, 21, 0.21);
+       box-shadow: 0px 2px 6px -2px rgba(21, 21, 21, 0.21);*/
+}
+
+span.bold {
+    font-size: 100%;
+    font-weight: 600;
+}
+
+
+.cjslib-row {
+    width: 100%;
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+            flex: 1;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+            flex-direction: row;
+}
+
+.cjslib-day {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+            flex: 1;
+    padding: 5px;
+    cursor: pointer;
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+            flex-direction: row;
+    /* border-bottom: 1px solid rgba(21, 21, 21, .12);
+    border-right: 1px solid rgba(21, 21, 21, .12); */
+    -webkit-transition: box-shadow 200ms ease-in-out;
+    -webkit-transition: -webkit-box-shadow 200ms ease-in-out;
+    transition: -webkit-box-shadow 200ms ease-in-out;
+    -o-transition: box-shadow 200ms ease-in-out;
+    transition: box-shadow 200ms ease-in-out;
+    transition: box-shadow 200ms ease-in-out, -webkit-box-shadow 200ms ease-in-out;
+}
+
+.cjslib-day:last-child {
+    border-right: none;
+}
+
+.cjslib-day:hover {
+    background-color: rgba(21, 21, 21, 0.012);
+    -webkit-box-shadow: inset 0px 0px 4px rgba(21, 21, 21, 0.21);
+            box-shadow: inset 0px 0px 4px rgba(21, 21, 21, 0.21);
+}
+
+.cjslib-day-radios {
+    display: none;
+}
+
+.cjslib-day-radios:checked+.cjslib-day {
+    background-color: rgba(21, 21, 21, 0.012);
+    -webkit-box-shadow: inset 0px 0px 4px rgba(21, 21, 21, 0.21);
+            box-shadow: inset 0px 0px 4px rgba(21, 21, 21, 0.21);
+}
+
+/* Tage im Monat */
+.cjslib-day > .cjslib-day-num {
+    width: 100%;
+    height: 100%;
+    /* height: -webkit-fit-content;
+    height: -moz-fit-content; */
+    /* height: fit-content; */
+    text-align: center;
+    font-size: 14px;
+    color: rgba(21, 21, 21, 0.84);
+    display: flex; 
+	flex-direction: column; 
+	justify-content:center;
+}
+
+/* aktueller Tag Symbol */
+    .cjslib-day.cjslib-day-today > .cjslib-day-num {
+        padding-bottom: none;
+        background-color: rgb(113, 201, 172);
+        width: 30px;
+        height: 30px;
+        margin: auto;
+        /* border: 2px solid; */
+        border-radius: 60px;
+    }
+
+/* Termin Vorschau im Kalender - Symbol */
+.cjslib-day > .cjslib-day-indicator {
+    font-size: 0px;
+    /* position: absolute; */
+    margin-top: 15px;
+    background-color: rgb(113, 201, 172);
+    border-radius: 100%;
+    -webkit-box-shadow: 0px 2px 4px rgba(21, 21, 21, 0.21);
+            box-shadow: 0px 2px 4px rgba(21, 21, 21, 0.21);
+}
+
+.cjslib-indicator-type-numeric {
+    padding: 3px;
+    display: -webkit-box;    
+    display: -ms-flexbox;    
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+}
+
+
+.cjslib-btn{
+    cursor: pointer;
+    background-color: rgb(113, 201, 172);
+    border-radius: 100%;
+    color: #F6F6F6;
+    font-size: 150%;
+    width:10%;
+    height:10%;
+    margin-left: 95%;
+    border: none;
+    z-index: 1;
+    position: relative;
+    top: -15px;
+    left: -10px;
+}
+
+.cjslib-btn:hover{
+    background-color: rgb(28, 160, 118);
+}
+
+.cjslib-day.cjslib-day-diluted {
+     background-color: rgba(21, 21, 21, 0.021); 
+     -webkit-box-shadow: inset 0px 0px 1px rgba(21, 21, 21, 0.12);
+            box-shadow: inset 0px 0px 1px rgba(21, 21, 21, 0.12);
+}
+
+/* Tage aus dem letzten und nächsten Monat */
+.cjslib-day.cjslib-day-diluted > .cjslib-day-num {
+    width: 100%;
+    font-size: 14px;
+    color: rgba(163, 163, 163, 0.73);
+}
+
+.cjslib-day-indicator:empty,
+.cjslib-day.cjslib-day-diluted > .cjslib-day-indicator {
+    display: none !important;
+}
+
+/* Kalender Größen START */
+.cjslib-calendar.cjslib-size-small .cjslib-day > .cjslib-day-indicator {
+    width: 8px;
+    height: 8px;
+    bottom: 7px;
+    right: 7px;
+}
+    .cjslib-calendar.cjslib-size-small .cjslib-day > .cjslib-indicator-type-numeric {
+        font-size: 7px;
+    }
+    .cjslib-calendar.cjslib-size-small .cjslib-day > .cjslib-indicator-pos-top {
+        top: 7px;
+        bottom: unset;
+    }
+
+.cjslib-calendar.cjslib-size-medium .cjslib-day > .cjslib-day-indicator {
+    width: 18px;
+    height: 18px;
+    bottom: 10px;
+    right: 10px;
+}
+    .cjslib-calendar.cjslib-size-medium .cjslib-day > .cjslib-indicator-type-numeric {
+        font-size: 10px;
+    }
+    .cjslib-calendar.cjslib-size-medium .cjslib-day > .cjslib-indicator-pos-top {
+        top: 10px;
+        bottom: unset;
+    }
+
+.cjslib-calendar.cjslib-size-large .cjslib-day > .cjslib-day-indicator {
+    width: 24px;
+    height: 24px;
+    bottom: 14px;
+    right: 14px;
+}
+    .cjslib-calendar.cjslib-size-large .cjslib-day > .cjslib-indicator-type-numeric {
+        font-size: 12px;
+    }
+    .cjslib-calendar.cjslib-size-large .cjslib-day > .cjslib-indicator-pos-top {
+        top: 14px;
+        bottom: unset;
+    }
+/* Kalender Größen ENDE */
+
+.cjslib-events {
+    width: 800px;
+    height: 800px;
+    font-family: "Satellite", "Roboto", sans-serif;
+    -webkit-box-shadow: 0px 0px 4px rgba(21, 21, 21, 0.21);
+            box-shadow: 0px 0px 4px rgba(21, 21, 21, 0.21);
+    border: 1px solid rgba(21, 21, 21, 0.12);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    border-radius: 20px;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+            flex-direction: column;
+    -ms-user-select: none;
+    user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+}
+
+.cjslib-events.cjslib-size-small {
+    width: 400px;
+    height: 400px;
+}
+
+.cjslib-events.cjslib-size-medium {
+    width: 600px;
+    height: 600px;
+}
+
+.cjslib-events.cjslib-size-large {
+    width: 800px;
+    height: 800px;
+}
+
+.cjslib-date {
+    width: calc(100% - 10px);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    border-radius: 20px 20px 0 0;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+            justify-content: center;
+    padding: 5px;
+    font-size: 14px;
+}
+
+/* Datum Zeile */
+.cjslib-date > span {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+            flex: 1;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+            justify-content: center;
+    -ms-flex-line-pack: center;
+            align-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+            align-items: center;
+    text-transform: uppercase;
+}
+
+/* vor und zurück Pfeile */
+.cjslib-date > div {
+    cursor: pointer;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-line-pack: center;
+            align-content: center;
+}
+
+.cjslib-rows {
+    width: 100%;
+    -webkit-box-flex: 1;
+    border-radius: 0 0 20px 20px;
+    -ms-flex: 1;
+            flex: 1;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+            flex-direction: column;
+    overflow: auto !important;
+    background-color: #e6e6e6;
+}
+
+.cjslib-list {
+    width: 90%;
+    position: relative;
+    overflow-y: visible !important;
+    padding: 0;
+    margin: auto;
+    color: rgba(21, 21, 21, 0.94);
+    padding-bottom: 0px;
+    margin-top: 20px;
+    background-color: white;
+    border-radius: 20px;
+}
+    .cjslib-list-history {
+        padding-top: 10px;
+        width: calc(100% - 20px);
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+        .cjslib-list-history > .cjslib-list-history-title {
+            padding: 5px 0px;
+            border-radius: 2px;
+        }
+
+    .cjslib-list-placeholder {
+        height: 100%;
+        border: none !important;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+                justify-content: center;
+        -ms-flex-line-pack: center;
+            align-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+                align-items: center;
+        color: #757575;
+        pointer-events: none;
+        display: none;
+    }
+        .cjslib-list-placeholder * {
+            pointer-events: all;
+        }
+        .cjslib-list .cjslib-list-placeholder:only-child {
+            display: block !important;
+        }
+
+.cjslib-list > li {
+    width: 100%;
+    margin-top: 10px;
+    /* display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row; */
+            /* flex-direction: row;
+    border-bottom: 1px solid rgba(21, 21, 21, 0.12);
+}
+
+.cjslib-list > li:hover {
+    /* -webkit-box-shadow: inset 0px 0px 4px rgba(21, 21, 21, 0.21);
+            box-shadow: inset 0px 0px 4px rgba(21, 21, 21, 0.21); */
+}
+
+.cjslib-list > li > div {
+    /* display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-flex: 2;
+    -ms-flex: 2;
+            flex: 2;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-line-pack: center;
+            align-content: center; */
+    padding: 5px;
+    border-right: 0px solid rgba(21, 21, 21, 0.12);
+    border-radius: 20px;
+    margin-left: 20px;
+}
+
+.cjslib-time {
+    font-size: 14px;
+}
+
+.cjslib-m {
+    font-size: 14px;
+    text-transform: uppercase;
+    padding-left: 5px;
+}
+
+.cjslib-list > li > p {
+    -webkit-box-flex: 4;
+    -ms-flex: 4;
+            flex: 4;
+    margin: 10px;
+    margin-left: 25px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-line-pack: center;
+            align-content: center;
+    font-size: 18px;
+    word-wrap: break-word;
+    word-break: break-word;
+}
+
+#terminContainer{
+    position: relative;
+    top: 10px;
+    left: -355px;
+    border-radius: 20px;
+}
+
+.divformular{
+    background-color: rgb(196, 196, 196);
+    width: 120%;
+    height: fit-content;
+    border-radius: 8%; 
+    position: relative;
+    left: -10%;
+}
+
+/*.divformular{
+    background-color: rgb(196, 196, 196);
+    width: 300px;
+    height: 300px;
+    border-radius: 20px;
+}*/
+
+
+/*.tag{
+    font-family: "Satellite", "Roboto", sans-serif;
+    font-size: smaller;
+    height: 50px;
+    position: relative;
+    top: 10px;
+}*/
+
+.tag{
+    font-family: "Satellite", "Roboto", sans-serif;
+    font-size: smaller;
+    height: 50px;
+    display: flex;
+}
+
+.divtag{
+    margin-left: 10px;
+    position: relative;
+    top: 20px;
+}
+
+.inputtag{
+    margin-top: 4%;
+    margin-left: 5%;
+    color: black;
+    border: none;
+    border-radius: 20px;
+    width: 55%;
+    height: 50%;
+    font-size: smaller;
+}
+
+/*.inputtag{
+    margin-top: 20px;
+    margin-left: 29px;
+    color: black;
+    width: 70px;
+    height: 15px;
+    border: none;
+    border-radius: 20px;
+}*/
+
+.divBox{
+    margin-top: 9px;
+    margin-left: 8px;
+}
+
+.boxWdh
+{
+    margin-top: -10px;
+}
+
+.wdh{
+    width: 57px;
+    height: 20px;
+    margin-top: 12px;
+    background-color: rgb(113, 201, 172);
+    border: none;
+    border-radius: 20px;
+    margin-left: 0px;
+    _display:none;
+}
+
+.titel{
+    _background-color: brown;
+    font-family: "Satellite", "Roboto", sans-serif;
+    font-size: smaller;
+    height: 50px;
+    position: relative;
+    top: -10px;
+}
+
+.divtitel{
+    _background-color: yellow;
+    margin-left: 10px;
+    position: relative;
+    top: 20px;
+}
+
+.inputtitel{
+    margin-top: 0px;
+    margin-left: 79px;
+    color: black;
+    _background-color: aqua;
+    border: none;
+    border-radius: 20px;
+}
+
+.uhrzeit{
+    display: flex;
+    height: 20px;
+    margin-top: 8px;
+    width: 250px;
+    margin-left: 10px;
+    position: relative;
+    top:-20px;
+}
+
+.divuhr{
+    width: 60px;
+    font-family: "Satellite", "Roboto", sans-serif;
+    font-size: smaller;
+}
+
+/*width: 65px;*/
+.inputvon{
+    width: 55px;
+    margin-left: -7px;
+    border: none;
+    border-radius: 20px;
+}
+
+.bis{
+    position: relative;
+    left: 72px;
+/*left: 82px;*/
+    top: 3px;
+    font-family: "Satellite", "Roboto", sans-serif;
+    font-size: smaller;
+}
+
+.inputbis{
+    width: 55px;
+    margin-left: 23px;
+    border: none;
+    border-radius: 20px;
+}
+
+.notizen{
+    _background-color: red;
+    height: 40px;
+    margin-top: -10px;
+    margin-left: 10px;
+    font-family: "Satellite", "Roboto", sans-serif;
+    font-size: smaller;
+}
+
+.inputnotiz{
+    margin-left: 20px;
+    border: none;
+    height: 40px;
+    border-radius: 20px;
+}
+
+.location{
+    height: 30px;
+    margin-top: 10px;
+    margin-left: 10px;
+    _background-color: red;
+    width: 60px;
+    font-family: "Satellite", "Roboto", sans-serif;
+    font-size: smaller;
+    position: relative;
+    top: 18px;
+}
+
+.inputlocation{
+    margin-left: 10px;
+    border: none;
+    height: 40px;
+    border-radius: 20px;
+    position: relative;
+    top: -25px;
+    left: 70px
+}
+
+.kategorie{
+    height: 40px;
+    margin-top: -10px;
+    margin-left: 10px;
+    font-family: "Satellite", "Roboto", sans-serif;
+    font-size: smaller;
+    _background-color: red;
+}
+
+.select{
+    margin-left: 10px;
+    border: none;
+    height: 20px;
+    width: 145px;
+/*    width: 165px;*/
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.buttons{
+    margin-top: -5px;
+    margin-left: 80px;
+}
+
+.buttonedit, .buttonRead{
+    background-color: rgb(113, 201, 172);
+    border: none;
+    border-radius: 20px;
+    width: 70px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.buttonquit{
+    margin-left: 20px;
+    background-color: rgb(113, 201, 172);
+    border: none;
+    border-radius: 20px;
+    width: 70px;
+    height: 30px;
+    cursor: pointer;
+}
